@@ -13,4 +13,5 @@ jobs:
         with:
           release-type: node
           path: express-api
+          package-name: express-api
           token: ${{ secrets.GITHUB_TOKEN }}
