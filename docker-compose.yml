@@ -1,0 +1,10 @@
+services:
+  express:
+    build: { context: ., dockerfile: Dockerfile.express }
+    ports: ["3000:3000"]
+  streamlit:
+    build: { context: ., dockerfile: Dockerfile.streamlit }
+    ports: ["8501:8501"]
+    environment:
+      - EXPRESS_URL=http://express:3000
+    depends_on: [express]
