@@ -1,0 +1,16 @@
+name: release-please
+on:
+  push: { branches: [ main ] }
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v3
+        with:
+          release-type: node
+          path: express-api
+          token: ${{ secrets.GITHUB_TOKEN }}
